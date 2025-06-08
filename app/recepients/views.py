@@ -11,6 +11,7 @@ from users.serializers import GetUserSerializer
 import pusher
 from decouple import config
 class RecepientView(viewsets.ModelViewSet):
+    permission_classes = (permissions.AllowAny, )
     filter_backends = [filters.SearchFilter]
     search_fields = ['location']
     queryset=Recepient.objects.all()

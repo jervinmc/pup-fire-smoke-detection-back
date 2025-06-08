@@ -22,7 +22,7 @@ path('api/v1/admin/', admin.site.urls),
     path('api/v1/login/', Login.as_view(), name='token_refresh'),
     path('api/v1/lognotif/', LogNotification.as_view(), name='token_refresh'),
     path('api/v1/users/', include('users.urls')),
-    path('api/v1/recepients/', include('recepients.urls')),
+    path('api/v1/recipients/', include('recepients.urls')),
     path('api/v1/logs/', include('logs.urls')),
     # path('api/v1/users/details/', GetUserView.as_view(), name='get_user'),
 ]
