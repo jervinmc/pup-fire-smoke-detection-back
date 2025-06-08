@@ -19,10 +19,11 @@ def nameFile(instance, filename):
     return 'uploads/{filename}'.format(filename=filename)
 
 
-class Logs(models.Model):
-    logs=models.CharField(_('logs'),max_length=255,blank=True,null=True)
-    temperature=models.CharField(_('temperature'),max_length=255,blank=True,null=True)
-    humidity=models.CharField(_('humidity'),max_length=255,blank=True,null=True)
-    timestamp=models.DateTimeField(_('timestamp'), null=False,blank=False,default=timezone.now)
+class Recepient(models.Model):
+    request_id=models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    fullname=models.CharField(_('fullname'),max_length=255,blank=True,null=True)
+    phone_number=models.CharField(_('phone_number'),max_length=255,
+                                  blank=True,null=True)
+    email=models.CharField(_('email'),max_length=255,blank=True,null=True)
     class Meta:
         ordering = ["-id"]
