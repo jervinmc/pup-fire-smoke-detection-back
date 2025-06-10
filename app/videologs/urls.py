@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from . import views
 
 routers=DefaultRouter()
-routers.register(r'',views.TemplateView)
+routers.register(r'',views.VideoLogsView)
 urlpatterns=[
     path('',include(routers.urls))
 ]

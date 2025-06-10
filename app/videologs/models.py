@@ -19,16 +19,9 @@ def nameFile(instance, filename):
     return 'uploads/{filename}'.format(filename=filename)
 
 
-class Template(models.Model):
+class VideoLogs(models.Model):
     request_id=models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
-    no_people = models.IntegerField(_('no_people'),default=0.0)
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE,default=None  )
-    price = models.DecimalField(_('price'),max_digits=20, decimal_places=2,default=0.0)
-    package_name=models.CharField(_('package_name'),max_length=255,blank=True,null=True)
-    description = models.TextField(_('description'),null=True,default=None)
-    date_from=models.DateTimeField(_('date_from'), null=False,blank=False,default=timezone.now)
-    is_active=models.BooleanField(_('is_active'),default=True)
-    image = models.ImageField(
-        _('image'), upload_to=nameFile, default="uploads/users_placeholde   r.png")
+    video_link = models.TextField(_('video_link'),null=True,default=None)
+    timestamp=models.DateTimeField(_('timestamp'), null=False,blank=False,default=timezone.now)
     class Meta:
         ordering = ["-id"]

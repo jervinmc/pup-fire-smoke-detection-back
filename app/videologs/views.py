@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets,generics
-from .models import Template
-from .serializers import TemplateSerializer
+from .models import VideoLogs
+from .serializers import VideoLogsSerializer
 from rest_framework import filters
 from rest_framework import permissions
 from rest_framework.response import Response
@@ -10,11 +10,12 @@ from users.models import User
 from users.serializers import GetUserSerializer
 import pusher
 from decouple import config
-class TemplateView(viewsets.ModelViewSet):
+class VideoLogsView(viewsets.ModelViewSet):
+    permission_classes = (permissions.AllowAny, )
     filter_backends = [filters.SearchFilter]
     search_fields = ['location']
-    queryset=Template.objects.all()
+    queryset=VideoLogs.objects.all()
     permissions_class = [permissions.AllowAny]
-    serializer_class=TemplateSerializer
+    serializer_class=VideoLogsSerializer
 
 

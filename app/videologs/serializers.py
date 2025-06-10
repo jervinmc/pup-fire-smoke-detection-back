@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Template
+from .models import VideoLogs
 
-class TemplateSerializer(serializers.ModelSerializer):
+class VideoLogsSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Template
+        model=VideoLogs
         fields="__all__"
